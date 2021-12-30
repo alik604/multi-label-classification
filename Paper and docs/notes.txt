@@ -1,0 +1,148 @@
+https://stackoverflow.com/questions/63979544/using-trained-bert-model-and-data-preprocessing
+
+http://cs229.stanford.edu/proj2017/final-reports/5163902.pdf
+
+https://datascience.stackexchange.com/questions/15989/micro-average-vs-macro-average-performance-in-a-multiclass-classification-settin
+
+
+
+
+original 
+[DF size] questions shape: (1264216, 7)
+[DF size] tags shape: (3750994, 2)
+Number of unique tags before removal 32058
+
+
+
+Number of questions 1264216
+Number of questions with score >= 1 is 594057
+reducded to 101 tags , via min_numb = 2000 # Number of unique tags after removal is 101, if min_score = 1.
+Amount of categories (tags) remaining 0.003151%
+Amount of data remaining 0.449453%
+Number of questions after: (498996, 2)
+
+vocab_size # 309411
+
+if we do TfidfVectorizer
+min_df=200 # 8908
+# min_df=1000# 3385
+    
+Clf:  ExtraTreesClassifier
+Accuracy score: 0.22334586682765653
+Recall score: 0.27799837100386887
+Precision score: 0.7935911481842874
+F1 score: 0.3873825144566118
+
+
+Clf:  RandomForestClassifier
+Accuracy score: 0.27327359674546653
+Recall score: 0.35183539734547675
+Precision score: 0.7965338057751677
+F1 score: 0.4543767120735285
+0.4543767120735285Train score: 0.9516728624535316
+Test score:  0.27327359674546653
+Time taken for RandomForestClassifier was 539.40
+
+Clf:  MLPClassifier
+Accuracy score: 0.3619516178728798
+Recall score: 0.5404240943336851
+Precision score: 0.7520324734933328
+F1 score: 0.6189265432694974
+0.6189265432694974Train score: 0.4378400585176204
+Test score:  0.3619516178728798
+Time taken for MLPClassifier was 165.39
+
+TODO notes on the last 1 cells of colab notebook
+
+
+---------
+Number of questions 1264216
+Number of questions with score >= 3 is 188015
+reducded to 101 tags, # min_numb = 624 # Number of unique tags after removal is 100+1, if min_score = 3.
+Amount of categories (tags) remaining 0.004510%
+Amount of data remaining 0.442803%
+Number of questions after: (160123, 2)
+
+--
+print(f'length is {len(list_of_questions)}') is 160123
+questions: 161.4 MiB
+
+
+vocab_size 121824
+IQR: 118 | mean: 157.16 | median: 113.0 | upper bound: 157.16050462153385
+
+tokenized
+
+Clf:  ExtraTreesClassifier
+Accuracy score: 6.245169751520308e-05
+Recall score: 9.295726412094229e-05
+Precision score: 0.15857315788576337
+F1 score: 0.0001857227195545714
+Train score: 1.0
+Test score:  6.245169751520308e-05
+Time taken for ExtraTreesClassifier was 31.04
+
+
+Clf:  RandomForestClassifier
+Accuracy score: 0.0006010975885838297
+Recall score: 0.0005675285598962793
+Precision score: 0.23681389711605078
+F1 score: 0.001129585405554267
+Train score: 0.8762490632025981
+Test score:  0.0006010975885838297
+Time taken for RandomForestClassifier was 41.99
+
+Clf:  MLPClassifier
+Accuracy score: 0.0
+Recall score: 0.0008023679639912914
+Precision score: 0.04850754334439879
+F1 score: 0.0015413825206534702
+0.0015413825206534702
+Train score: 0.0
+Test score:  0.0
+Time taken for MLPClassifier was 54.98
+
+
+
+--------------
+TfidfVectorizer
+min_df=200 
+
+print(f'The number of features is {len(features)}') 4519
+
+The number of samples is 160123 
+The number of features is 4519
+(128098, 4519)
+(128098, 101)
+(32025, 101)
+
+
+Clf:  ExtraTreesClassifier
+Accuracy score: 0.2486494925839188
+Recall score: 0.29594565578090537
+Precision score: 0.7973873461949164
+F1 score: 0.40604024121287086
+Train score: 1.0
+Test score:  0.2486494925839188
+Time taken for ExtraTreesClassifier was 157.88
+
+
+Clf:  RandomForestClassifier
+Accuracy score: 0.30379391100702574
+Recall score: 0.37855511526674346
+Precision score: 0.7756578961481374
+F1 score: 0.47787457166061137
+Train score: 0.9530906025074553
+Test score:  0.30379391100702574
+Time taken for RandomForestClassifier was 177.91
+
+
+Clf:  MLPClassifier
+Accuracy score: 0.3590007806401249
+Recall score: 0.5912861855589607
+Precision score: 0.6850863021757897
+F1 score: 0.6321836389630043
+Train score: 0.899163140720386
+Test score:  0.3590007806401249
+Time taken for MLPClassifier was 1085.79
+
