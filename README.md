@@ -1,2 +1,3 @@
 # multi-label-classification 
- 
+  
+Automatically annotating documents with keywords is important for enabling users to retrieve the information they need. This concept can take many forms, for example, labeling questions with “tags”. A user will not necessarily know the appropriate terms to google, let alone to “tag” their question. This core concept can be readily applied in industry, in the first point of customer service, which is a major expense for businesses. This paper explores precisely this real-world use case. I compare a variety of models ranging in theoretical grounding and number of parameters to achieve a precise multi-label classification of a given question. That is, the output will classify the user’s question with up to five
